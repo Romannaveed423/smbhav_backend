@@ -1,0 +1,26 @@
+==========================================
+Earnings API Testing Script
+==========================================
+
+[1;33mStep 1: Checking Server Health[0m
+----------------------------------------
+{
+  "status": "ok",
+  "timestamp": "2025-12-05T17:13:03.832Z"
+}
+
+[1;33mStep 2: Earnings Health Check[0m
+----------------------------------------
+Earnings Health:
+{
+  "status": "ok",
+  "module": "earnings",
+  "timestamp": "2025-12-05T17:13:03.862Z"
+}
+
+[1;33mStep 3: Authentication[0m
+----------------------------------------
+Attempting to login...
+jq: parse error: Invalid numeric literal at line 1, column 4
+[0;31mLogin failed. Please ensure test user exists.[0m
+Response: Too many authentication attempts, please try again later.

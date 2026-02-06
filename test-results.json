@@ -1,0 +1,778 @@
+==========================================
+Store API Testing Script
+==========================================
+
+[1;33mStep 1: Checking Server Health[0m
+----------------------------------------
+{
+  "status": "ok",
+  "timestamp": "2025-12-05T17:07:02.379Z"
+}
+
+[1;33mStep 2: Health Checks[0m
+----------------------------------------
+Store Health:
+{
+  "status": "ok",
+  "module": "store",
+  "timestamp": "2025-12-05T17:07:02.405Z"
+}
+
+Cart Health:
+{
+  "status": "ok",
+  "module": "cart",
+  "timestamp": "2025-12-05T17:07:02.431Z"
+}
+
+Notifications Health:
+{
+  "status": "ok",
+  "module": "notifications",
+  "timestamp": "2025-12-05T17:07:02.467Z"
+}
+
+Locations Health:
+{
+  "status": "ok",
+  "module": "locations",
+  "timestamp": "2025-12-05T17:07:02.499Z"
+}
+
+[1;33mStep 3: Authentication[0m
+----------------------------------------
+Attempting to login...
+[0;32m✓ Authentication successful[0m
+Token: eyJhbGciOiJIUzI1NiIs...
+
+[1;33mStep 4: Location APIs[0m
+----------------------------------------
+4.1 Get User Locations:
+{
+  "success": true,
+  "data": {
+    "locations": []
+  }
+}
+
+4.2 Get User Location (Default):
+{
+  "success": false,
+  "message": "No default location found",
+  "code": "NOT_FOUND"
+}
+
+4.3 Search Locations:
+{
+  "success": true,
+  "data": {
+    "locations": []
+  }
+}
+
+[1;33mStep 5: Category APIs[0m
+----------------------------------------
+5.1 Get Categories:
+{
+  "success": true,
+  "data": {
+    "categories": [
+      {
+        "id": "6933111e8b39512c1c556878",
+        "name": "Fruits & Vegetables",
+        "icon": "https://example.com/icons/fruits.png",
+        "image": "https://example.com/images/fruits.jpg",
+        "backgroundColor": "#FF6B6B",
+        "productCount": 2,
+        "order": 1
+      },
+      {
+        "id": "6933111e8b39512c1c556879",
+        "name": "Dairy & Eggs",
+        "icon": "https://example.com/icons/dairy.png",
+        "image": "https://example.com/images/dairy.jpg",
+        "backgroundColor": "#4ECDC4",
+        "productCount": 1,
+        "order": 2
+      },
+      {
+        "id": "6933111e8b39512c1c55687a",
+        "name": "Bakery",
+        "icon": "https://example.com/icons/bakery.png",
+        "image": "https://example.com/images/bakery.jpg",
+        "backgroundColor": "#FFE66D",
+        "productCount": 2,
+        "order": 3
+      },
+      {
+        "id": "6933111e8b39512c1c55687b",
+        "name": "Beverages",
+        "icon": "https://example.com/icons/beverages.png",
+        "image": "https://example.com/images/beverages.jpg",
+        "backgroundColor": "#95E1D3",
+        "productCount": 1,
+        "order": 4
+      },
+      {
+        "id": "6933111e8b39512c1c55687c",
+        "name": "Snacks",
+        "icon": "https://example.com/icons/snacks.png",
+        "image": "https://example.com/images/snacks.jpg",
+        "backgroundColor": "#F38181",
+        "productCount": 1,
+        "order": 5
+      }
+    ]
+  }
+}
+
+5.2 Get Category Products (Category ID: 6933111e8b39512c1c556878):
+{
+  "success": true,
+  "data": {
+    "items": [
+      {
+        "id": "6933111f8b39512c1c556886",
+        "name": "Organic Apples",
+        "description": "Fresh organic red apples, 1kg pack",
+        "price": 160,
+        "originalPrice": 200,
+        "discountPercent": 20,
+        "image": "https://example.com/images/apple.jpg",
+        "category": "",
+        "rating": 4.8,
+        "reviews": 45,
+        "stock": 50,
+        "storeId": "6933111f8b39512c1c556880",
+        "storeName": "Fresh Groceries",
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556887",
+        "name": "Fresh Tomatoes",
+        "description": "Fresh red tomatoes, 500g pack",
+        "price": 40,
+        "originalPrice": 50,
+        "discountPercent": 20,
+        "image": "https://example.com/images/tomato.jpg",
+        "category": "",
+        "rating": 4.5,
+        "reviews": 30,
+        "stock": 100,
+        "storeId": "6933111f8b39512c1c556880",
+        "storeName": "Fresh Groceries",
+        "isFavorite": false
+      }
+    ],
+    "total": 2,
+    "page": 1,
+    "limit": 5
+  }
+}
+
+[1;33mStep 6: Banner APIs[0m
+----------------------------------------
+6.1 Get Banners:
+{
+  "success": true,
+  "data": {
+    "banners": [
+      {
+        "id": "693311218b39512c1c55689e",
+        "title": "Special Offer - 20% Off",
+        "description": "Get 20% off on all fruits and vegetables",
+        "image": "https://example.com/images/banner1.jpg",
+        "link": "/store/products/special-offers",
+        "linkType": "url",
+        "order": 1,
+        "isActive": true
+      },
+      {
+        "id": "693311218b39512c1c55689f",
+        "title": "New Store Opening",
+        "description": "Check out our new bakery store",
+        "image": "https://example.com/images/banner2.jpg",
+        "link": "6933111f8b39512c1c556881",
+        "linkType": "store",
+        "order": 2,
+        "isActive": true
+      },
+      {
+        "id": "693311218b39512c1c5568a0",
+        "title": "Fresh Daily",
+        "description": "Fresh produce delivered daily",
+        "image": "https://example.com/images/banner3.jpg",
+        "link": "6933111f8b39512c1c556886",
+        "linkType": "product",
+        "order": 3,
+        "isActive": true
+      }
+    ]
+  }
+}
+
+[1;33mStep 7: Store APIs[0m
+----------------------------------------
+7.1 Get Recommended Stores:
+{
+  "success": true,
+  "data": {
+    "stores": [
+      {
+        "id": "6933111f8b39512c1c556881",
+        "name": "Bakery Delight",
+        "description": "Fresh baked goods, breads, and pastries",
+        "status": "open",
+        "backgroundColor": "#FFE66D",
+        "icon": "https://example.com/icons/store2.png",
+        "iconColor": "#000000",
+        "leftImage": "https://example.com/images/store2.jpg",
+        "rating": 4.8,
+        "reviews": 85,
+        "location": "456 Oak Avenue, Downtown",
+        "deliveryTime": "20-30 mins",
+        "deliveryFee": 40,
+        "minOrder": 150,
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556880",
+        "name": "Fresh Groceries",
+        "description": "Fresh fruits, vegetables, and organic produce",
+        "status": "open",
+        "backgroundColor": "#FF6B6B",
+        "icon": "https://example.com/icons/store1.png",
+        "iconColor": "#FFFFFF",
+        "leftImage": "https://example.com/images/store1.jpg",
+        "rating": 4.5,
+        "reviews": 120,
+        "location": "123 Main Street, City Center",
+        "deliveryTime": "30-45 mins",
+        "deliveryFee": 50,
+        "minOrder": 200,
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556882",
+        "name": "Quick Mart",
+        "description": "Convenience store with snacks and beverages",
+        "status": "open",
+        "backgroundColor": "#95E1D3",
+        "icon": "https://example.com/icons/store3.png",
+        "iconColor": "#FFFFFF",
+        "leftImage": "https://example.com/images/store3.jpg",
+        "rating": 4.2,
+        "reviews": 200,
+        "location": "789 Pine Street, Uptown",
+        "deliveryTime": "15-25 mins",
+        "deliveryFee": 30,
+        "minOrder": 100,
+        "isFavorite": false
+      }
+    ]
+  }
+}
+
+7.2 Get All Recommended Stores (Paginated):
+{
+  "success": true,
+  "data": {
+    "stores": [
+      {
+        "id": "6933111f8b39512c1c556881",
+        "name": "Bakery Delight",
+        "description": "Fresh baked goods, breads, and pastries",
+        "status": "open",
+        "backgroundColor": "#FFE66D",
+        "icon": "https://example.com/icons/store2.png",
+        "iconColor": "#000000",
+        "leftImage": "https://example.com/images/store2.jpg",
+        "rating": 4.8,
+        "reviews": 85,
+        "location": "456 Oak Avenue, Downtown",
+        "deliveryTime": "20-30 mins",
+        "deliveryFee": 40,
+        "minOrder": 150,
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556880",
+        "name": "Fresh Groceries",
+        "description": "Fresh fruits, vegetables, and organic produce",
+        "status": "open",
+        "backgroundColor": "#FF6B6B",
+        "icon": "https://example.com/icons/store1.png",
+        "iconColor": "#FFFFFF",
+        "leftImage": "https://example.com/images/store1.jpg",
+        "rating": 4.5,
+        "reviews": 120,
+        "location": "123 Main Street, City Center",
+        "deliveryTime": "30-45 mins",
+        "deliveryFee": 50,
+        "minOrder": 200,
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556882",
+        "name": "Quick Mart",
+        "description": "Convenience store with snacks and beverages",
+        "status": "open",
+        "backgroundColor": "#95E1D3",
+        "icon": "https://example.com/icons/store3.png",
+        "iconColor": "#FFFFFF",
+        "leftImage": "https://example.com/images/store3.jpg",
+        "rating": 4.2,
+        "reviews": 200,
+        "location": "789 Pine Street, Uptown",
+        "deliveryTime": "15-25 mins",
+        "deliveryFee": 30,
+        "minOrder": 100,
+        "isFavorite": false
+      }
+    ],
+    "total": 3,
+    "page": 1,
+    "limit": 5
+  }
+}
+
+7.3 Get Store Details (Store ID: 6933111f8b39512c1c556881):
+{
+  "success": true,
+  "data": {
+    "id": "6933111f8b39512c1c556881",
+    "name": "Bakery Delight",
+    "description": "Fresh baked goods, breads, and pastries",
+    "status": "open",
+    "rating": 4.8,
+    "reviews": 85,
+    "location": {
+      "address": "456 Oak Avenue, Downtown",
+      "latitude": 40.7589,
+      "longitude": -73.9851
+    },
+    "deliveryTime": "20-30 mins",
+    "deliveryFee": 40,
+    "minOrder": 150,
+    "images": [
+      "https://example.com/images/store2-1.jpg",
+      "https://example.com/images/store2-2.jpg"
+    ],
+    "categories": [
+      "Bakery",
+      "Beverages"
+    ],
+    "isFavorite": false,
+    "openingHours": {
+      "monday": {
+        "open": "07:00",
+        "close": "20:00"
+      },
+      "tuesday": {
+        "open": "07:00",
+        "close": "20:00"
+      },
+      "wednesday": {
+        "open": "07:00",
+        "close": "20:00"
+      },
+      "thursday": {
+        "open": "07:00",
+        "close": "20:00"
+      },
+      "friday": {
+        "open": "07:00",
+        "close": "21:00"
+      },
+      "saturday": {
+        "open": "08:00",
+        "close": "21:00"
+      },
+      "sunday": {
+        "open": "08:00",
+        "close": "19:00"
+      }
+    }
+  }
+}
+
+7.4 Get Store Status (Store ID: 6933111f8b39512c1c556881):
+{
+  "success": true,
+  "data": {
+    "status": "open",
+    "nextOpenTime": ""
+  }
+}
+
+7.5 Search Stores:
+{
+  "success": false,
+  "message": "Cast to ObjectId failed for value \"search\" (type string) at path \"_id\" for model \"Store\"",
+  "code": "INTERNAL_SERVER_ERROR"
+}
+
+[1;33mStep 8: Product APIs[0m
+----------------------------------------
+8.1 Get Special Offers:
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "6933111f8b39512c1c556887",
+        "name": "Fresh Tomatoes",
+        "image": "https://example.com/images/tomato.jpg",
+        "discountPercent": 20,
+        "originalPrice": 50,
+        "discountedPrice": 40,
+        "rating": 4.5,
+        "reviews": 30,
+        "quantityType": "Pack",
+        "stock": 100,
+        "storeId": "6933111f8b39512c1c556880",
+        "storeName": "Fresh Groceries",
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556886",
+        "name": "Organic Apples",
+        "image": "https://example.com/images/apple.jpg",
+        "discountPercent": 20,
+        "originalPrice": 200,
+        "discountedPrice": 160,
+        "rating": 4.8,
+        "reviews": 45,
+        "quantityType": "Kg",
+        "stock": 50,
+        "storeId": "6933111f8b39512c1c556880",
+        "storeName": "Fresh Groceries",
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c55688a",
+        "name": "Chocolate Cake",
+        "image": "https://example.com/images/cake.jpg",
+        "discountPercent": 16.67,
+        "originalPrice": 300,
+        "discountedPrice": 250,
+        "rating": 4.9,
+        "reviews": 150,
+        "quantityType": "Pcs",
+        "stock": 20,
+        "storeId": "6933111f8b39512c1c556881",
+        "storeName": "Bakery Delight",
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c55688c",
+        "name": "Potato Chips",
+        "image": "https://example.com/images/chips.jpg",
+        "discountPercent": 14.29,
+        "originalPrice": 35,
+        "discountedPrice": 30,
+        "rating": 4.3,
+        "reviews": 180,
+        "quantityType": "Pcs",
+        "stock": 300,
+        "storeId": "6933111f8b39512c1c556882",
+        "storeName": "Quick Mart",
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556889",
+        "name": "Fresh Bread",
+        "image": "https://example.com/images/bread.jpg",
+        "discountPercent": 12.5,
+        "originalPrice": 40,
+        "discountedPrice": 35,
+        "rating": 4.6,
+        "reviews": 80,
+        "quantityType": "Pcs",
+        "stock": 75,
+        "storeId": "6933111f8b39512c1c556881",
+        "storeName": "Bakery Delight",
+        "isFavorite": false
+      }
+    ],
+    "total": 6,
+    "page": 1,
+    "limit": 5
+  }
+}
+
+8.2 Get Highlights:
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "6933111f8b39512c1c55688a",
+        "name": "Chocolate Cake",
+        "image": "https://example.com/images/cake.jpg",
+        "discountPercent": 16.67,
+        "originalPrice": 300,
+        "discountedPrice": 250,
+        "rating": 4.9,
+        "reviews": 150,
+        "quantityType": "Pcs",
+        "stock": 20,
+        "storeId": "6933111f8b39512c1c556881",
+        "storeName": "Bakery Delight",
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556886",
+        "name": "Organic Apples",
+        "image": "https://example.com/images/apple.jpg",
+        "discountPercent": 20,
+        "originalPrice": 200,
+        "discountedPrice": 160,
+        "rating": 4.8,
+        "reviews": 45,
+        "quantityType": "Kg",
+        "stock": 50,
+        "storeId": "6933111f8b39512c1c556880",
+        "storeName": "Fresh Groceries",
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c556888",
+        "name": "Fresh Milk",
+        "image": "https://example.com/images/milk.jpg",
+        "discountPercent": 0,
+        "originalPrice": 60,
+        "discountedPrice": 60,
+        "rating": 4.7,
+        "reviews": 120,
+        "quantityType": "Liter",
+        "stock": 200,
+        "storeId": "6933111f8b39512c1c556880",
+        "storeName": "Fresh Groceries",
+        "isFavorite": false
+      }
+    ],
+    "total": 3,
+    "page": 1,
+    "limit": 5
+  }
+}
+
+8.3 Get Product Details (Product ID: 6933111f8b39512c1c556887):
+{
+  "success": true,
+  "data": {
+    "id": "6933111f8b39512c1c556887",
+    "name": "Fresh Tomatoes",
+    "description": "Fresh red tomatoes, 500g pack",
+    "images": [
+      "https://example.com/images/tomato.jpg"
+    ],
+    "price": 40,
+    "originalPrice": 50,
+    "discountPercent": 20,
+    "rating": 4.5,
+    "reviews": [],
+    "quantityType": "Pack",
+    "stock": 100,
+    "category": "Fruits & Vegetables",
+    "storeId": "6933111f8b39512c1c556880",
+    "storeName": "Fresh Groceries",
+    "isFavorite": false,
+    "specifications": {}
+  }
+}
+
+8.4 Get Store Products (Store ID: 6933111f8b39512c1c556881):
+{
+  "success": true,
+  "data": {
+    "items": [
+      {
+        "id": "6933111f8b39512c1c556889",
+        "name": "Fresh Bread",
+        "description": "Freshly baked white bread, 400g",
+        "price": 35,
+        "originalPrice": 40,
+        "discountPercent": 12.5,
+        "image": "https://example.com/images/bread.jpg",
+        "category": "",
+        "rating": 4.6,
+        "reviews": 80,
+        "stock": 75,
+        "storeId": "6933111f8b39512c1c556881",
+        "storeName": "Bakery Delight",
+        "isFavorite": false
+      },
+      {
+        "id": "6933111f8b39512c1c55688a",
+        "name": "Chocolate Cake",
+        "description": "Delicious chocolate cake, 500g",
+        "price": 250,
+        "originalPrice": 300,
+        "discountPercent": 16.67,
+        "image": "https://example.com/images/cake.jpg",
+        "category": "",
+        "rating": 4.9,
+        "reviews": 150,
+        "stock": 20,
+        "storeId": "6933111f8b39512c1c556881",
+        "storeName": "Bakery Delight",
+        "isFavorite": false
+      }
+    ],
+    "total": 2,
+    "page": 1,
+    "limit": 5
+  }
+}
+
+[1;33mStep 9: Search APIs[0m
+----------------------------------------
+9.1 Search Items:
+{
+  "success": true,
+  "data": {
+    "items": [],
+    "total": 0,
+    "page": 1,
+    "limit": 5
+  }
+}
+
+9.2 Voice Search:
+{
+  "success": true,
+  "data": {
+    "query": "sample query from voice",
+    "items": []
+  }
+}
+
+[1;33mStep 10: Favorites APIs[0m
+----------------------------------------
+10.1 Get User Favorites:
+{
+  "success": true,
+  "data": {
+    "favorites": []
+  }
+}
+
+10.2 Add Store to Favorites:
+{
+  "success": true,
+  "message": "Added to favorites successfully",
+  "data": {
+    "id": "69331147fb71dc35070c9bd0",
+    "type": "store",
+    "itemId": "6933111f8b39512c1c556881",
+    "addedAt": "2025-12-05T17:07:19.336Z"
+  }
+}
+
+10.3 Check Favorite Status:
+{
+  "success": true,
+  "data": {
+    "isFavorite": true
+  }
+}
+
+10.4 Remove from Favorites:
+{
+  "success": true,
+  "message": "Removed from favorites successfully"
+}
+
+[1;33mStep 11: Cart APIs[0m
+----------------------------------------
+11.1 Get Cart:
+{
+  "success": true,
+  "data": {
+    "items": [],
+    "subtotal": 0,
+    "deliveryFee": 0,
+    "total": 0
+  }
+}
+
+11.2 Add to Cart:
+{
+  "success": true,
+  "message": "Added to cart successfully",
+  "data": {
+    "id": "6933114afb71dc35070c9bdd",
+    "productId": "6933111f8b39512c1c556887",
+    "quantity": 2
+  }
+}
+
+11.3 Get Cart (Updated):
+{
+  "success": true,
+  "data": {
+    "items": [
+      {
+        "id": "6933114afb71dc35070c9bdd",
+        "productId": "6933111f8b39512c1c556887",
+        "productName": "Fresh Tomatoes",
+        "productImage": "https://example.com/images/tomato.jpg",
+        "price": 40,
+        "quantity": 2,
+        "storeId": "6933111f8b39512c1c556881",
+        "storeName": "Bakery Delight"
+      }
+    ],
+    "subtotal": 80,
+    "deliveryFee": 40,
+    "total": 120
+  }
+}
+
+11.4 Update Cart Item:
+{
+  "success": true,
+  "message": "Cart item updated successfully",
+  "data": {
+    "id": "6933114afb71dc35070c9bdd",
+    "quantity": 3
+  }
+}
+
+11.5 Remove from Cart:
+{
+  "success": true,
+  "message": "Removed from cart successfully"
+}
+
+[1;33mStep 12: Notification APIs[0m
+----------------------------------------
+12.1 Get Notifications:
+{
+  "success": true,
+  "data": {
+    "notifications": [],
+    "unreadCount": 0,
+    "total": 0,
+    "page": 1,
+    "limit": 10
+  }
+}
+
+[1;33mStep 13: Utility APIs[0m
+----------------------------------------
+13.1 Get Delivery Time Estimate:
+{
+  "success": true,
+  "data": {
+    "estimatedTime": "20-30 mins",
+    "deliveryFee": 40
+  }
+}
+
+
+==========================================
+[0;32m✓ All API Tests Completed[0m
+==========================================
