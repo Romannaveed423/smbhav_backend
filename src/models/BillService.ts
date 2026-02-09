@@ -58,6 +58,7 @@ const BillServiceSchema = new Schema<IBillService>(
   },
   {
     timestamps: true,
+    collection: 'billservices',
   }
 );
 

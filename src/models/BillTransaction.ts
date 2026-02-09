@@ -99,6 +99,7 @@ const BillTransactionSchema = new Schema<IBillTransaction>(
   },
   {
     timestamps: true,
+    collection: 'billtransactions',
   }
 );
 
